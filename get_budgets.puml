@@ -1,0 +1,13 @@
+@startuml
+autonumber
+actor "Main Program" as Client
+participant "Budget Microservice" as Server
+database "SQLite DB" as DB
+
+Client -> Server : Requests a list of all budgets
+Server -> DB : Queries the database for all budgets
+DB --> Server : Returns stored budget records
+Server --> Client : Sends the list of budgets
+Client -> Server : Disconnects
+
+@enduml

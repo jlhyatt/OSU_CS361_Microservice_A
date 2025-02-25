@@ -1,0 +1,13 @@
+@startuml
+autonumber
+actor "Main Program" as Client
+participant "Budget Microservice" as Server
+database "SQLite DB" as DB
+
+Client -> Server : Requests to add a budget (e.g., Groceries, $500)
+Server -> DB : Inserts budget entry into the database
+DB --> Server : Confirms successful insertion
+Server --> Client : Returns success message
+Client -> Server : Disconnects
+
+@enduml

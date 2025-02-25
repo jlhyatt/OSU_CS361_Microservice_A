@@ -1,0 +1,13 @@
+@startuml
+autonumber
+actor "Main Program" as Client
+participant "Budget Microservice" as Server
+database "SQLite DB" as DB
+
+Client -> Server : Requests to remove a budget (e.g., Groceries)
+Server -> DB : Deletes the budget entry from the database
+DB --> Server : Confirms successful deletion
+Server --> Client : Returns success message
+Client -> Server : Disconnects
+
+@enduml
